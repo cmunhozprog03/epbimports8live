@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Livewire\Admin\Sector;
+use App\Http\Livewire\Admin\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +22,6 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('/users', User::class)->name('users')->middleware('auth');
+Route::get('/sectors', Sector::class)->name('sectors')->middleware('auth');
